@@ -42,4 +42,10 @@ def test_input():
 @app.route('/detail/<_id>', strict_slashes=False)
 def detail(_id):
     contact = workscripts.get_detail(_id)
-    return render_template('pages/detail.html', contact=contact.cont_id)
+    return render_template('pages/detail.html', contact=contact)
+
+
+@app.route("/delete/<_id>", strict_slashes=False)
+def delete(_id):
+    workscripts.delete_contact(_id)
+    return redirect("/")

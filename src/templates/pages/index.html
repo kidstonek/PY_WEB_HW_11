@@ -13,8 +13,6 @@
       <nav style="margin-bottom: 20px; border-bottom: 2px solid; padding-left: 30px">
         <ul>
           <li><a href="/contact/" role="button">Add contact</a></li>
-          <li><a href="/tag/" role="button">Edit contact</a></li>
-		  <li><a href="/test/" role="button">Test input</a></li>
         </ul>
       </nav>
 	 {% for contact in contacts%}
@@ -22,6 +20,9 @@
         <li>
           <a href="/detail/{{contact.cont_id}}" role="button" class="outline"
             >{{contact.cont_name}}</a
+          >
+		  <a href="/delete/{{contact.cont_id}}" role="button" class="contrast"
+            >Delete record</a
           >
         </li>
       </ul>
