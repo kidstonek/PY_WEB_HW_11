@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contact edit</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
+    />
+  </head>
+  <body>
+    <main class="container">
+      <nav style="margin-bottom: 20px; border-bottom: 2px solid; padding-left: 30px">
+        <ul>
+          <li><a href="/" role="button"> Go back to the main page </a></li>
+        </ul>
+      </nav>
+	  <h1>{{contact[0]}}</h1>
+      <form method="POST" action="/edit>">
+        <div style="padding: 10px">
+          <label
+            >Address: {{contact[1]}}
+            <input type="text" name="address" required />
+          </label>
+        <div style="padding: 10px">
+          <label
+            >Phone: {{contact[2]}}
+            <input type="text" name="phone" required />
+          </label>
+		  <label
+            >Email: {{contact[3]}}
+            <input type="text" name="email" required />
+          </label>
+        </div>
+        <div class="grid">
+		  <button type="submit">Submit</button>
+          <button type="reset" class="secondary">Reset</button>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>

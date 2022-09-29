@@ -27,18 +27,6 @@ def create_contact():
     return render_template('pages/contact.html', title='Add Contact')
 
 
-@app.route('/test', methods=['GET', 'POST'], strict_slashes=False)
-def test_input():
-    if request.method == 'POST':
-        text = request.form.get('text')
-        in_text = workscripts.test_input(text)
-        print(in_text.test_id)
-        text_r = request.form.get('mri')
-        text_rel = workscripts.test_input_rel(text_r, in_text.test_id)
-        return redirect(url_for('index'))
-    return render_template('pages/test.html', title='test input')
-
-
 @app.route('/detail/<_id>', strict_slashes=False)
 def detail(_id):
     contact = workscripts.get_detail(_id)
@@ -49,3 +37,15 @@ def detail(_id):
 def delete(_id):
     workscripts.delete_contact(_id)
     return redirect("/")
+
+
+@app.route('/edit/<_id>', methods=['GET', 'POST'], strict_slashes=False)
+def detail_for_edit(_id):
+    contact = workscripts.get_detail(_id)
+    if request.method == 'POST':
+        c_add = request.form.get('address')
+        c_phone = request.form.get('phone')
+        c_email = request.form.get('email')
+        workscripts.contact_details(c_add, c_phone, c_email, _id)
+        return redirect(url_for('index'))
+    return render_template('pages/edit.html', contact=contact)
