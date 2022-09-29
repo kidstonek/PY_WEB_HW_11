@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Notebook</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
+    />
+  </head>
+  <body>
+    <main class="container">
+      <nav style="margin-bottom: 20px; border-bottom: 2px solid; padding-left: 30px">
+        <ul>
+          <li><a href="/contact/" role="button">Add contact</a></li>
+          <li><a href="/tag/" role="button">Edit contact</a></li>
+		  <li><a href="/test/" role="button">Test input</a></li>
+        </ul>
+      </nav>
+	 {% for contact in contacts%}
+      <ul>
+        <li>
+          <a href="/detail/{{contact.cont_id}}" role="button" class="outline"
+            >{{contact.cont_name}}</a
+          >
+        </li>
+      </ul>
+      {% endfor %}
+    </main>
+  </body>
+</html>
